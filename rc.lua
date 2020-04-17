@@ -594,7 +594,6 @@ if autorun then
 	awful.spawn("xinput set-prop 13 286 1")
 	awful.spawn("compton")
 	awful.spawn("source ~/.bash_profile")
-	awful.spawn("xrandr --auto")
 end
 
 -- Enable sloppy focus, so that focus follows mouse.
