@@ -18,6 +18,7 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- Imported by me
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -61,21 +62,21 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.floating,
+    -- awful.layout.suit.floating,
     awful.layout.suit.tile,
     awful.layout.suit.tile.left,
-    awful.layout.suit.tile.bottom,
-    awful.layout.suit.tile.top,
+    -- awful.layout.suit.tile.bottom,
+    -- awful.layout.suit.tile.top,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.max,
     -- awful.layout.suit.fair.horizontal,
-    awful.layout.suit.spiral,
+    -- awful.layout.suit.spiral,
     -- awful.layout.suit.fair,
     -- awful.layout.suit.spiral.dwindle,
     -- awful.layout.suit.magnifier,
     -- awful.layout.suit.corner.nw,
     -- awful.layout.suit.corner.ne,
-     awful.layout.suit.corner.sw,
+    -- awful.layout.suit.corner.sw,
     -- awful.layout.suit.corner.se,
 }
 -- }}}
@@ -100,7 +101,7 @@ local net_widgets = require("net_widgets")
 local battery_widget = require("battery-widget")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
- net_wireless = net_widgets.wireless({interface="wlp1s0"}) 
+net_wireless = net_widgets.wireless({interface="wlp4s0"}) 
 
 
 mylauncher = awful.widget.launcher({ image = beautiful.awesome_icon,
@@ -173,12 +174,13 @@ end
 screen.connect_signal("property::geometry", set_wallpaper)
 
 
+
 awful.screen.connect_for_each_screen(function(s)
     -- Wallpaper
     set_wallpaper(s)
 
     -- Each screen has its own tag table.
-    awful.tag({ "1", "2", "3", "4", "5", "6", "7", "8", "9" }, s, awful.layout.layouts[1])
+    awful.tag({ "1", "2", "3", "4", "5", "6", "7" }, s, awful.layout.layouts[1])
 
     -- Create a promptbox for each screen
     s.mypromptbox = awful.widget.prompt()
@@ -257,6 +259,8 @@ globalkeys = gears.table.join(
     	      {description = "increase volume by 5%"}),
     awful.key({ }, "#122", function () awful.util.spawn("amixer -D pulse sset Master 5%-") end,
     	      {description = "decrease volume by 5%"}),
+    awful.key({ }, "#121", function () awful.util.spawn("amixer -D pulse sset Master toggle") end,
+    	      {description = "Mute or unmute system"}),
 
 -- AWESOME KEY BINDINGS
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
@@ -388,12 +392,12 @@ clientkeys = gears.table.join(
             c.maximized = not c.maximized
             c:raise()
         end ,
-        {description = "(un)maximize", group = "client"}),
-    awful.key({ modkey, "Control" }, "m",
-        function (c)
-            c.maximized_vertical = not c.maximized_vertical
-            c:raise()
-        end ,
+        -- {description = "(un)maximize", group = "client"}),
+    -- awful.key({ modkey, "Control" }, "m",
+       --  function (c)
+          --  c.maximized_vertical = not c.maximized_vertical
+           -- c:raise()
+       -- end ,
         {description = "(un)maximize vertically", group = "client"}),
     awful.key({ modkey, "Shift"   }, "m",
         function (c)
@@ -586,9 +590,11 @@ end)
 
 autorun = true
 if autorun then
-	awful.spawn("xinput set-prop 12 278 1")
-	awful.spawn("xinput set-prop 12 286 1")
+	awful.spawn("xinput set-prop 13 278 1")
+	awful.spawn("xinput set-prop 13 286 1")
 	awful.spawn("compton")
+	awful.spawn("source ~/.bash_profile")
+	awful.spawn("xrandr --auto")
 end
 
 -- Enable sloppy focus, so that focus follows mouse.
