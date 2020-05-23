@@ -590,13 +590,9 @@ end)
 
 autorun = true
 if autorun then
-	-- awful.spawn("xinput set-prop 14 278 1")
-	-- awful.spawn("xinput set-prop 14 296 1")
-	-- awful.spawn("compton")
 	awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "Synaptics TM3276-031") 296 1')
 	awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "Synaptics TM3276-031") 278 1')
 	awful.spawn("source ~/.bash_profile")
-	-- awful.spawn("bash ~/StartupScripts/mousepadFix.sh")
 end
 
 -- Enable sloppy focus, so that focus follows mouse.
