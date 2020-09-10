@@ -63,8 +63,9 @@ modkey = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     -- awful.layout.suit.floating,
-    awful.layout.suit.tile,
+    -- awful.layout.suit.tile,
     awful.layout.suit.tile.left,
+    awful.layout.suit.tile.right,
     -- awful.layout.suit.tile.bottom,
     -- awful.layout.suit.tile.top,
     -- awful.layout.suit.max.fullscreen,
@@ -251,16 +252,18 @@ globalkeys = gears.table.join(
 -- SELF MADE KEY BINDINGS --
     awful.key({"Shift"}, "Print", function () awful.util.spawn("flameshot gui") end,
     	      {description = "take screenshot"}),
-    awful.key({"fn + F5" }, "#232", function () awful.util.spawn("xbacklight -dec 10") end,
+    awful.key({"fn + F5" }, "#71", function () awful.util.spawn("xbacklight -dec 10") end,
     	      {description = "decrease light"}),
-    awful.key({"fn + F6"}, "#233", function () awful.util.spawn("xbacklight -inc 10") end,
+    awful.key({"fn + F6"}, "#72", function () awful.util.spawn("xbacklight -inc 10") end,
     	      {description = "increase light"}),
-    awful.key({"fn + F3"}, "#123", function () awful.util.spawn("amixer -D pulse sset Master 5%+") end,
+    awful.key({"fn + F3"}, "#69", function () awful.util.spawn("amixer -D pulse sset Master 5%+") end,
     	      {description = "increase volume by 5%"}),
-    awful.key({"fn + F2"}, "#122", function () awful.util.spawn("amixer -D pulse sset Master 5%-") end,
+    awful.key({"fn + F2"}, "#68", function () awful.util.spawn("amixer -D pulse sset Master 5%-") end,
     	      {description = "decrease volume by 5%"}),
-    awful.key({"fn + F1"}, "#121", function () awful.util.spawn("amixer -D pulse sset Master toggle") end,
+    awful.key({"fn + F1"}, "#67", function () awful.util.spawn("amixer -D pulse sset Master toggle") end,
     	      {description = "Mute or unmute system"}),
+    awful.key({"fn + F7"}, "#73", function ()  awful.util.spawn("arandr") end,
+	      {description = "Open arandr"}),
 
 -- AWESOME KEY BINDINGS
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
@@ -319,10 +322,10 @@ globalkeys = gears.table.join(
               {description = "increase master width factor", group = "layout"}),
     awful.key({ modkey,           }, "h",     function () awful.tag.incmwfact(-0.05)          end,
               {description = "decrease master width factor", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
-              {description = "increase the number of master clients", group = "layout"}),
-    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
-              {description = "decrease the number of master clients", group = "layout"}),
+	      --    awful.key({ modkey, "Shift"   }, "h",     function () awful.tag.incnmaster( 1, nil, true) end,
+	      --              {description = "increase the number of master clients", group = "layout"}),
+	      --    awful.key({ modkey, "Shift"   }, "l",     function () awful.tag.incnmaster(-1, nil, true) end,
+	      --              {description = "decrease the number of master clients", group = "layout"}),
     awful.key({ modkey, "Control" }, "h",     function () awful.tag.incncol( 1, nil, true)    end,
               {description = "increase the number of columns", group = "layout"}),
     awful.key({ modkey, "Control" }, "l",     function () awful.tag.incncol(-1, nil, true)    end,
@@ -590,8 +593,9 @@ end)
 
 autorun = true
 if autorun then
-	awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "Synaptics TM3276-031") 296 1')
 	awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "Synaptics TM3276-031") 278 1')
+	awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "Synaptics TM3276-031") 286 1')
+	awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "Synaptics TM3276-031") 288 0')
 	awful.spawn("source ~/.bash_profile")
 end
 
