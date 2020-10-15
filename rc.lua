@@ -1,0 +1,1 @@
+/home/asmund/.config/awesome/rc.lua
