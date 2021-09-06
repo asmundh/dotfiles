@@ -46,7 +46,7 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
-beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.init(gears.filesystem.get_themes_dir() .. "smund/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
 terminal = "xfce4-terminal"
@@ -62,12 +62,12 @@ modkey = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    awful.layout.suit.tile.left,
     awful.layout.suit.tile.right,
+    awful.layout.suit.tile.left,
     -- awful.layout.suit.floating,
-    --awful.layout.suit.tile,
-    -- awful.layout.suit.tile.bottom,
-    -- awful.layout.suit.tile.top,
+    -- awful.layout.suit.tile,
+    awful.layout.suit.tile.bottom,
+    awful.layout.suit.tile.top,
     -- awful.layout.suit.max.fullscreen,
     -- awful.layout.suit.max,
     -- awful.layout.suit.fair.horizontal,
@@ -251,6 +251,11 @@ globalkeys = gears.table.join(
     	      {description = "Mute or unmute system", group = "fn keys"}),
     awful.key({"fn + F7"	}, "#73", function ()  awful.util.spawn("arandr") end,
 	      {description = "Open arandr", group = "fn keys"}),
+    awful.key({"fn + F8"	}, "#74", function () awful.util.spawn_with_shell("~/progging/scripts/toggleMousepad.sh") end,
+    	      {description = "Enable/disable mousepad", group="fn keys"}),
+    awful.key({"fn + F9"	}, "#75", function () awful.util.spawn_with_shell("~/progging/scripts/toggleScreenlight.sh") end,
+    	      {description = "Enable/disable screen", group="fn keys"}),
+
 
 -- AWESOME KEY BINDINGS
     awful.key({ modkey,           }, "s",      hotkeys_popup.show_help,
@@ -484,7 +489,7 @@ awful.rules.rules = {
 
     -- Add titlebars to normal clients and dialogs
     { rule_any = {type = { "normal", "dialog" }
-      }, properties = { titlebars_enabled = true }
+      }, properties = { titlebars_enabled = false }
     },
 
     -- Set Firefox to always map on the tag named "2" on screen 1.
@@ -524,7 +529,7 @@ client.connect_signal("request::titlebars", function(c)
 
     awful.titlebar(c) : setup {
         { -- Left
-            awful.titlebar.widget.iconwidget(c),
+            -- awful.titlebar.widget.iconwidget(c),
             buttons = buttons,
             layout  = wibox.layout.fixed.horizontal
         },
@@ -550,9 +555,9 @@ end)
 
 autorun = true
 if autorun then
-	awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "Synaptics TM3276-031") 278 1')
-	awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "Synaptics TM3276-031") 286 1')
-	awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "Synaptics TM3276-031") 288 0')
+	awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "Synaptics TM3276-031") "libinput Tapping Enabled" 1')
+	awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "Synaptics TM3276-031") "libinput Disable While Typing Enabled" 0')
+	awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "Synaptics TM3276-031") "libinput Natural Scrolling Enabled" 1')
 	awful.spawn("source ~/.bash_profile")
 end
 

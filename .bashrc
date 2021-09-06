@@ -160,7 +160,9 @@ alias gst="git status"
 alias gco="git checkout"
 alias gcob="git checkout -b"
 alias bashrc="vim ~/.bashrc"
-alias amendnt="amend --no-edit"
+alias newrepo="git push -u origin master"
+alias mtoggle="bash ~/progging/scripts/toggleMousepad.sh"
+alias dragon="dragon-drag-and-drop"
 
 alias a='fasd -a'        # any
 alias s='fasd -si'       # show / search / select
@@ -179,8 +181,8 @@ alias ns='npm start'
 
 alias scs='systemctl start'
 
-alias kotlint='ktlint -F "src/**/*.kt"'
-alias amendnt='amend --no-edit'
+alias prclone='cd ~/progging && git clone '
+
 
 export HISTSIZE=10000
 export HISTFILESIZE=10000
@@ -207,6 +209,7 @@ export BASH_IT="/home/asmund/.bash_it"
 
 # Lock and Load a custom theme file.
 # Leave empty to disable theming.
+
 # location /.bash_it/themes/
 export BASH_IT_THEME='barbuk'
 
@@ -226,3 +229,7 @@ source "$BASH_IT"/bash_it.sh
 
 source /home/asmund/.config/broot/launcher/bash/br
 source /usr/share/nvm/init-nvm.sh
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
