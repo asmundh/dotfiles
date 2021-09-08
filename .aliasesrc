@@ -1,0 +1,23 @@
+# Use powerline
+alias conf='sudo vim ~/.config/awesome/rc.lua'
+alias bashrc="vim ~/.bashrc"
+alias zsh="vim ~/.zshrc"
+
+
+alias j='fasd_cd -d' 		# cd, same functionality as j in autojump
+
+alias cp="cp -i"                          # confirm before overwriting something
+
+# git aliases
+alias gst="git status"
+alias gco="git checkout"
+alias gcob="git checkout -b"
+alias newrepo="git push -u origin master"
+
+# NPM aliases
+alias ni='npm install'
+alias nid='npm install --save-dev'
+alias nr='npm run'
+alias ns='npm start'
+
+alias scs='systemctl start'
