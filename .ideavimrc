@@ -1,0 +1,57 @@
+"" Source your .vimrc
+source ~/.vimrc
+
+"" -- Suggested options --
+" Show a few lines of context around the cursor. Note that this makes the
+" text scroll if you mouse-click near the start or end of the window.
+Plug 'preservim/nerdtree'
+Plug 'easymotion/vim-easymotion'
+
+" Do incremental searching.
+set incsearch
+
+" Don't use Ex mode, use Q for formatting.
+map Q gq
+
+
+"" Map \b to toggle the breakpoint on the current line
+"map \b <Action>(ToggleLineBreakpoint)
+
+
+"" Move methods
+nnoremap [ :action MethodUp<CR>
+nnoremap ] :action MethodDown<CR>
+
+" Set leader to space
+let mapleader=" "
+
+" Open and close terminal
+nnoremap <leader>t :action ActivateTerminalToolWindow<CR>
+
+"" -- NERDTree --
+let g:NERDTreeQuitOnOpen =
+let g:NERDTreeMapActivateNode = 'l'
+let g:NERDTreeMapJumpParent = 'h'
+
+"" Open NERDTree
+nnoremap <leader>o :NERDTree<CR>
+
+" Refactor
+nnoremap <leader>r :action RefactoringMenu<CR>
+
+" Documentation
+nnoremap <leader>d :action QuickJavaDoc<CR>
+nnoremap <leader><leader>d :action ExternalJavaDoc<CR>
+"" Map <leader>d to start debug
+map <leader>d <Action>(Debug)
+
+
+"" IntelliJ Actions
+nnoremap <leader>a :action GotoAction<CR>
+nnoremap <leader>e :action ShowErrorDescription<CR>
+nnoremap <leader>p :action GotoFile<CR>
+nnoremap <leader>f :action FindInPath<CR>
+nnoremap <leader>w :action CloseContent<CR>
+nnoremap <leader>T :action ReopenClosedTab<CR>
+nnoremap <leader>m :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <leader>W :action MoveTabRight<CR>

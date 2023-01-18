@@ -1,0 +1,26 @@
+[user]
+	email = aasmund.haugse@gmail.com
+	name = asmundh
+[core]
+	editor = vim
+[alias]
+	ca = commit --amend
+	caa = commit -a --amend --no-edit
+        cam = commit -am
+	pushf = push --force-with-lease
+	rc = rebase --continue
+	ra = rebase --abort
+	diff = difftool -y
+        cam = commit -am
+        puo = push -u origin
+        glog = log --oneline --decorate --color --graph
+
+[tig "bind"]
+    main = = !git commit --fixup=%(commit)
+    main = <Ctrl-R> !git rebase --autosquash -i %(commit)
+[diff]
+	tool = vimdiff
+[credential "https://github.com"]
+	helper = !/usr/bin/gh auth git-credential
+[credential "https://gist.github.com"]
+	helper = !/usr/bin/gh auth git-credential
