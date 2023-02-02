@@ -24,12 +24,14 @@ export HISTIGNORE="ls:ps:history:q:exit"
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
 
+
 eval "$(fasd --init auto)"
 
 source /usr/share/nvm/init-nvm.sh
 source ~/.aliasesrc
 
-eval "$(starship init zsh)"
+source ~/.vyaliasesrc
+source ~/.scripts/vyscripts/ekern
 
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
