@@ -48,6 +48,7 @@ alias tfmt="terraform fmt"
 
 alias lg="lazygit"
 alias bith="bluetuith"
+alias pix="pulsemixer"
 
 alias todo="todoist-cli"
 alias todos="todoist-cli s" # Sync todoist
