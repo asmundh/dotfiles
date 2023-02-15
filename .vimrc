@@ -34,3 +34,9 @@ set history=1000
 
 " keep cursor in the middle of the screen when scrolling
 set so=10
+
+" Allow using uppercase W and Q commands to save/quit
+command WQ wq
+command Wq wq
+command W w
+command Q q
