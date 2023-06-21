@@ -29,10 +29,11 @@ eval "$(fasd --init auto)"
 
 source /usr/share/nvm/init-nvm.sh
 source ~/.aliasesrc
+alias ssh="kitty +kitten ssh"
 
 source ~/.vyaliasesrc
 source ~/.scripts/vyscripts/ekern
-
+DISABLE_MAGIC_FUNCTIONS=true
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
 [[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"

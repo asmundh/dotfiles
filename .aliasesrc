@@ -6,13 +6,14 @@ alias al="alias"
 
 alias cat="bat"
 
-alias conf='sudo vim ~/.config/awesome/rc.lua'
+alias conf='sudo vim ~/dotfiles/rc.lua'
 alias bashrc="vim ~/.bashrc"
 alias zsh="vim ~/.zshrc"
 
 alias sp='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
 
 alias j='fasd_cd -d' 		# cd, same functionality as j in autojump
+alias ji='fasd_cd -i' 		# cd, same functionality as j in autojump
 
 alias cp="cp -i"                          # confirm before overwriting something
 
@@ -55,3 +56,9 @@ alias todos="todoist-cli s" # Sync todoist
 alias tooi='(){todoist-cli a $1 &;}' # Add todo to inbox
 alias toot="todoist-cli l | grep Inbox" # List todos in inbox
 alias toots='(){todoist-cli a -d today $1 &;}' # Add todo with deadline today
+
+alias temp="weather-Cli get"
+
+alias capra="autorandr --load capra"
+alias mobile="autorandr --load mobile"
+alias vy="autorandr --load vy"

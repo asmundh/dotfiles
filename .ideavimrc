@@ -43,6 +43,8 @@ nnoremap <leader>rr :action RefactoringMenu<CR>
 " Documentation
 nnoremap <leader>d :action QuickJavaDoc<CR>
 nnoremap <leader><leader>d :action ExternalJavaDoc<CR>
+nnoremap <leader><leader>f :action ToggleRenderedDocPresentationForAll<CR>
+
 "" Map <leader>d to start debug
 map <leader>d <Action>(Debug)
 
@@ -57,5 +59,9 @@ nnoremap <leader>m :action MoveEditorToOppositeTabGroup<CR>
 nnoremap <leader>W :action MoveTabRight<CR>
 nnoremap <leader>b :action ToggleLineBreakpoint<CR>
 nnoremap <leader>h :action Replace<CR>
+nnoremap <leader>g :action GotoDeclaration<CR>
+
+
+nnoremap <leader><leader>g :action ExternalSystem.ProjectRefreshAction<CR>
 
 nmap <leader>/ <Plug>(easymotion-s)

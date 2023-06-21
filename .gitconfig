@@ -5,8 +5,11 @@
 	editor = vim
 [alias]
 	ca = commit --amend
+	can = commit --amend --no-edit
 	caa = commit -a --amend --no-edit
         cam = commit -am
+        comit = commit
+        puhs = push
 	pushf = push --force-with-lease
 	rc = rebase --continue
 	ra = rebase --abort
@@ -24,3 +27,5 @@
 	helper = !/usr/bin/gh auth git-credential
 [credential "https://gist.github.com"]
 	helper = !/usr/bin/gh auth git-credential
+[push]
+	autoSetupRemote = true
