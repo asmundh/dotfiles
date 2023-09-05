@@ -18,6 +18,23 @@ local hotkeys_popup = require("awful.hotkeys_popup")
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
+-- NAUGHTY start
+local naughty = require("naughty")
+local nconf = naughty.config
+nconf.defaults.border_width = 0
+nconf.defaults.margin = 16
+nconf.defaults.text = "Boo!"
+nconf.defaults.timeout = 3
+nconf.padding = 8
+nconf.presets.critical.bg = "#FE634E"
+nconf.presets.critical.fg = "#fefefa"
+nconf.presets.low.bg = "#445069"
+nconf.presets.normal.bg = "#5B9A8B"
+nconf.defaults.icon_size = 64
+nconf.spacing = 8
+-- NAUGHTY end
+
+
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -284,7 +301,7 @@ globalkeys = gears.table.join(
         ),
         awful.key({modkey, "Shift" }, "Return", function() awful.util.spawn(terminal, {
                 floating = true,
-                placement = awful.placement.centered + awful.placement.no_overlap,
+                placement = awful.placement.bottom + awful.placement.no_overlap,
 		width = 900,
 		height = 500
             }) end,
@@ -392,7 +409,7 @@ globalkeys = gears.table.join(
                     if command and #command > 0 then
                         awful.spawn(command, {
                             floating = true,
-                            placement = awful.placement.bottom + awful.placement.no_overlap,
+                            placement = awful.placement.bottom, -- + awful.placement.no_overlap,
                             width = 900,
                             height = 500
                         })
@@ -539,6 +556,7 @@ awful.rules.rules = {
                      border_color = beautiful.border_normal,
                      focus = awful.client.focus.filter,
                      raise = true,
+		     callback = awful.client.setslave,
                      keys = clientkeys,
                      buttons = clientbuttons,
                      screen = awful.screen.preferred,

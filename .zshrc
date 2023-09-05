@@ -19,7 +19,8 @@ fi
 
 export HISTSIZE=10000
 export HISTFILESIZE=10000
-export HISTIGNORE="ls:ps:history:q:exit"
+export HISTIGNORE="ls:ps:history:q:exit:shutdown:shutdown now"
+export HISTTIMEFORMAT="%F %T "
 
 source /usr/share/fzf/key-bindings.zsh
 source /usr/share/fzf/completion.zsh
@@ -33,6 +34,8 @@ alias ssh="kitty +kitten ssh"
 
 source ~/.vyaliasesrc
 source ~/.scripts/vyscripts/ekern
+source ~/.scripts/pomo
+
 DISABLE_MAGIC_FUNCTIONS=true
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"

@@ -11,7 +11,6 @@ alias bashrc="vim ~/.bashrc"
 alias zsh="vim ~/.zshrc"
 
 alias sp='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
-
 alias j='fasd_cd -d' 		# cd, same functionality as j in autojump
 alias ji='fasd_cd -i' 		# cd, same functionality as j in autojump
 
@@ -22,6 +21,10 @@ alias gcl="git clone"
 alias gst="git status"
 alias gco="git checkout"
 alias gcob="git checkout -b"
+
+# GitHub CLI
+alias ghpr="gh pr create -f"
+alias ghpr="gh pr view --web"
 
 # NPM aliases
 alias ni='npm install'
@@ -38,6 +41,10 @@ alias tep="terraform plan"
 alias tev="terraform validate"
 alias tea="terraform apply"
 alias tei="terraform init"
+
+# KtLint
+alias formatt="./gradlew ktlintFormat"
+alias checkk="./gradlew ktlintCheck"
 
 alias wifis="nmcli device wifi list"
 
@@ -62,3 +69,6 @@ alias temp="weather-Cli get"
 alias capra="autorandr --load capra"
 alias mobile="autorandr --load mobile"
 alias vy="autorandr --load vy"
+
+alias nvpn='(){sudo openvpn --config /etc/openvpn/ovpn_tcp/$1.nordvpn.com.tcp.ovpn --auth-user-pass ~/.nordvpn/credentials.txt}'
+alias nvpnlist='(){ls /etc/openvpn/ovpn_tcp | grep $1 | awk "{print $NF}"}'
