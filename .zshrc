@@ -36,6 +36,13 @@ source ~/.vyaliasesrc
 source ~/.scripts/vyscripts/ekern
 source ~/.scripts/pomo
 
+# Use `bat` as a paget for `man`
+export MANPAGER="less -R --use-color -Dd+r -Du+b"
+export MANROFFOPT="-c"
+
+#alias -g -- -h='-h 2>&1 | bat --language=help --style=plain'
+#alias -g -- --help='--help 2>&1 | bat --language=help --style=plain'
+
 DISABLE_MAGIC_FUNCTIONS=true
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
 export SDKMAN_DIR="$HOME/.sdkman"
