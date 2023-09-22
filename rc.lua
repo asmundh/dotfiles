@@ -291,6 +291,9 @@ globalkeys = gears.table.join(
                 { "fn + F5" }, "#71", function()  brightness_widget:dec() end,
                 { description = "decrease volume by 5%", group = "fn keys" }
         ),
+	    awful.key({}, "XF86AudioPlay", function()
+		    awful.util.spawn_with_shell("playerctl play-pause")
+	    end),
         awful.key(
                 { "fn + F6" }, "#72", function()  brightness_widget:inc() end,
                 { description = "decrease volume by 5%", group = "fn keys" }
