@@ -61,9 +61,10 @@ nnoremap <leader>b :action ToggleLineBreakpoint<CR>
 nnoremap <leader>h :action Replace<CR>
 nnoremap <leader>g :action GotoDeclaration<CR>
 nnoremap <leader>z :action SelectInProjectView<CR>
-nnoremap <leader>7 :action CommentByLineComment<CR>
+nnoremap <leader><leader>b :action ActivateDatabaseToolWindow<CR>
 
-
+nnoremap <leader>+ :action EditorIncreaseFontSize<CR>
+nnoremap <leader>- :action EditorDecreaseFontSize<CR>
 
 nnoremap <leader><leader>g :action ExternalSystem.ProjectRefreshAction<CR>
 
