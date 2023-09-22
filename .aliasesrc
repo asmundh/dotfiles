@@ -6,6 +6,9 @@ alias al="alias"
 
 alias cat="bat"
 
+alias sp='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
+alias rp='pacman -Qq | fzf --multi --preview "pacman -Qi {1}" | xargs -ro sudo pacman -Rns'
+
 alias conf='sudo vim ~/dotfiles/rc.lua'
 alias bashrc="vim ~/.bashrc"
 alias zsh="vim ~/.zshrc"
