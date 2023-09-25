@@ -280,23 +280,23 @@ globalkeys = gears.table.join(
                 { description = "Mute or unmute system", group = "fn keys" }
         ),
         awful.key(
-                { "fn + F2" }, "#68", function()  awful.util.spawn("amixer -D pulse sset Master 5%-") end,
+                { "fn + F2" }, "#68", function()  awful.util.spawn("pactl set-sink-volume 0 -5%") end,
                 { description = "decrease volume by 5%", group = "fn keys" }
         ),
         awful.key(
-                { "fn + F3" }, "#69", function()  awful.util.spawn("amixer -D pulse sset Master 5%+") end,
+                { "fn + F3" }, "#69", function()  awful.util.spawn("pactl set-sink-volume 0 +5%") end,
                 { description = "increase volume by 5%", group = "fn keys" }
         ),
         awful.key(
                 { "fn + F5" }, "#71", function()  brightness_widget:dec() end,
-                { description = "decrease volume by 5%", group = "fn keys" }
+                { description = "decrease brightness by 10%", group = "fn keys" }
         ),
 	    awful.key({}, "XF86AudioPlay", function()
 		    awful.util.spawn_with_shell("playerctl play-pause")
 	    end),
         awful.key(
                 { "fn + F6" }, "#72", function()  brightness_widget:inc() end,
-                { description = "decrease volume by 5%", group = "fn keys" }
+                { description = "increase brightness by 10%", group = "fn keys" }
         ),
         awful.key(
                 { "fn + F7" }, "#73", function()  awful.util.spawn("arandr") end,
