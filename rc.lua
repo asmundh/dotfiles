@@ -302,7 +302,7 @@ globalkeys = gears.table.join(
                 { "fn + F7" }, "#73", function()  awful.util.spawn("arandr") end,
 	        { description = "Open arandr", group = "fn keys" }
         ),
-        awful.key({modkey, "Shift" }, "Return", function() awful.util.spawn(terminal, {
+        awful.key({modkey, "Shift" }, "Return", function() awful.util.spawn(terminal.." --class floatyterminal", {
                 floating = true,
                 placement = awful.placement.bottom + awful.placement.no_overlap,
 		width = 900,
@@ -577,7 +577,7 @@ awful.rules.rules = {
             "DTA", -- Firefox addon DownThemAll.
             "copyq", -- Includes session name in class.
             "pinentry",
-	    "pavucontrol"
+	    "pavucontrol",
         },
         class = {
             "Arandr",
@@ -591,6 +591,7 @@ awful.rules.rules = {
             "veromix",
             "xtightvncviewer",
 	    "floaties",
+	    "floatyterminal"
     },
 
         -- Note that the name property shown in xprop might be set slightly after creation of the client
@@ -605,7 +606,7 @@ awful.rules.rules = {
         }
     }, properties = { 
 	    floating = true,
-	    placement = awful.placement.centered
+	    placement = awful.placement.bottom + awful.placement.no_overlap
     } },
 
     -- Add titlebars to normal clients and dialogs
