@@ -67,7 +67,7 @@ end
 beautiful.init(gears.filesystem.get_themes_dir() .. "smund/theme.lua")
 
 -- This is used later as the default terminal and editor to run.
-terminal = "/usr/bin/kitty"
+terminal = "/usr/bin/alacritty"
 editor = os.getenv("EDITOR") or "vim"
 editor_cmd = terminal .. " -e " .. editor
 

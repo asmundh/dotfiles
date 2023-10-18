@@ -1,5 +1,8 @@
+" Plugins are configured using Vim8 plugins in the .vim-folder
+
 set nocompatible
 filetype off
+filetype plugin indent on
 
 set autoread
 
@@ -17,6 +20,10 @@ set number
 
 " Start searching before pressing enter
 set incsearch
+
+" Set j and k to move visual lines (not underlying lines)
+nmap j gj
+nmap k gk
 
 "keep visual mode after indent
 vnoremap > >gv

@@ -10,6 +10,7 @@
         cam = commit -am
         comit = commit
 	pushf = push --force-with-lease
+	pul = pull 
 	rc = rebase --continue
 	ra = rebase --abort
 	diff = difftool -y

@@ -13,10 +13,8 @@ set incsearch
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
-
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
-
 
 "" Move methods
 nnoremap [ :action MethodUp<CR>
@@ -39,6 +37,7 @@ nnoremap <leader>o :NERDTree<CR>
 " Refactor
 nnoremap <leader>rs :action SurroundWith<CR>
 nnoremap <leader>rr :action RefactoringMenu<CR>
+nnoremap <leader>k :action RefactoringMenu<CR>
 
 " Documentation
 nnoremap <leader>d :action QuickJavaDoc<CR>
@@ -48,20 +47,25 @@ nnoremap <leader><leader>f :action ToggleRenderedDocPresentationForAll<CR>
 "" Map <leader>d to start debug
 map <leader>d <Action>(Debug)
 
-"" IntelliJ Actions
-nnoremap <leader>a :action GotoAction<CR>
-nnoremap <leader>e :action ShowErrorDescription<CR>
-nnoremap <leader>p :action GotoFile<CR>
-nnoremap <leader>f :action FindInPath<CR>
+"" Tab/window handling
 nnoremap <leader>w :action CloseContent<CR>
+nnoremap <leader>W :action MoveTabRight<CR>
 nnoremap <leader>T :action ReopenClosedTab<CR>
 nnoremap <leader>m :action MoveEditorToOppositeTabGroup<CR>
-nnoremap <leader>W :action MoveTabRight<CR>
-nnoremap <leader>b :action ToggleLineBreakpoint<CR>
-nnoremap <leader>h :action Replace<CR>
+nnoremap <leader><leader>b :action ActivateDatabaseToolWindow<CR>
+
+"" File/file content navigation
+nnoremap <leader>p :action GotoFile<CR>
+nnoremap <leader>f :action FindInPath<CR>
 nnoremap <leader>g :action GotoDeclaration<CR>
 nnoremap <leader>z :action SelectInProjectView<CR>
-nnoremap <leader><leader>b :action ActivateDatabaseToolWindow<CR>
+
+nnoremap <leader>a :action GotoAction<CR>
+nnoremap <leader>b :action ToggleLineBreakpoint<CR>
+
+nnoremap <leader>e :action ShowErrorDescription<CR>
+
+nnoremap <leader>h :action Replace<CR>
 
 nnoremap <leader>+ :action EditorIncreaseFontSize<CR>
 nnoremap <leader>- :action EditorDecreaseFontSize<CR>

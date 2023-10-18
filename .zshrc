@@ -30,7 +30,7 @@ eval "$(fasd --init auto)"
 
 source /usr/share/nvm/init-nvm.sh
 source ~/.aliasesrc
-alias ssh="kitty +kitten ssh"
+# alias ssh="kitty +kitten ssh"
 
 source ~/.vyaliasesrc
 source ~/.scripts/vyscripts/ekern
