@@ -23,16 +23,17 @@ theme.bg_systray    = theme.bg_normal
 theme.fg_normal     = "#FEFEFE"
 theme.fg_focus      = "#ff780a"
 theme.fg_urgent     = "#C83F11"
-theme.fg_minimize   = "#ffffff"
+theme.fg_minimize   = "#ffffff" 
 
 theme.useless_gap   = dpi(4)
 theme.border_width  = dpi(2)
-theme.border_normal = "#000000"
+
+theme.border_normal = "#0f0000"
 theme.border_focus  = "#ff780a"
 -- theme.border_focus  = "#FF4300"
 theme.border_marked = "#91231c"
-
-theme.titlebar_bg_focus = "FFF"
+theme.border_focus  = "#FF4300"
+theme.titlebar_bg_focus = "#FFFFFF"
 
 -- There are other variable sets
 -- overriding the default one when

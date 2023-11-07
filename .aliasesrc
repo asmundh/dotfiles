@@ -8,6 +8,8 @@ alias cat="bat"
 
 alias resc="nmcli device wifi rescan"
 
+alias psag='(){ps aux | grep $1}'
+
 alias pacbrowse='pacman -Slq | fzf --multi --preview "pacman -Si {1}"'
 alias sp='pacman -Slq | fzf --multi --preview "pacman -Si {1}" | xargs -ro sudo pacman -S'
 alias rp='pacman -Qq | fzf --multi --preview "pacman -Qi {1}" | xargs -ro sudo pacman -Rns'

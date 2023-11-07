@@ -10,6 +10,9 @@ Plug 'easymotion/vim-easymotion'
 " Do incremental searching.
 set incsearch
 
+" Emulate vim-surround plugin
+set surround
+
 " Don't use Ex mode, use Q for formatting.
 map Q gq
 
@@ -19,6 +22,8 @@ map Q gq
 "" Move methods
 nnoremap [ :action MethodUp<CR>
 nnoremap ] :action MethodDown<CR>
+
+nmap <leader>/ <Plug>(easymotion-s)
 
 " Set leader to space
 let mapleader=" "
@@ -71,5 +76,3 @@ nnoremap <leader>+ :action EditorIncreaseFontSize<CR>
 nnoremap <leader>- :action EditorDecreaseFontSize<CR>
 
 nnoremap <leader><leader>g :action ExternalSystem.ProjectRefreshAction<CR>
-
-nmap <leader>/ <Plug>(easymotion-s)

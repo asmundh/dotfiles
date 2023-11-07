@@ -18,6 +18,9 @@ set smartindent
 set ignorecase
 set number
 
+" Vim easymotion
+nmap <leader>/ <Plug>(easymotion-s2)
+
 " Start searching before pressing enter
 set incsearch
 
