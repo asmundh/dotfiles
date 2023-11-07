@@ -636,9 +636,9 @@ awful.util.spawn_with_shell("picom --config ~/.config/picom/picom.conf")
 
 autorun = true
 if autorun then
-    awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "SYNA8008:00 06CB:CE58 Touchpad") "libinput Disable While Typing Enabled" 0') 
-    awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "SYNA8008:00 06CB:CE58 Touchpad") "libinput Natural Scrolling Enabled" 1') 
-    awful.spawn.with_shell('xinput --set-prop $(xinput list --id-only "SYNA8008:00 06CB:CE58 Touchpad") "libinput Tapping Enabled" 1') 
+    awful.spawn.with_shell("xinput --set-prop $(xinput | grep 'Touchpad' | awk '{print $6}' | cut -c 4-5) 'libinput Disable While Typing Enabled' 0") 
+    awful.spawn.with_shell("xinput --set-prop $(xinput | grep 'Touchpad' | awk '{print $6}' | cut -c 4-5) 'libinput Natural Scrolling Enabled' 1") 
+    awful.spawn.with_shell("xinput --set-prop $(xinput | grep 'Touchpad' | awk '{print $6}' | cut -c 4-5) 'libinput Tapping Enabled' 1") 
     awful.spawn.with_shell('xset b off')
     awful.spawn("source ~/.bash_profile")
     awful.spawn("source ~/.zshrc")
@@ -655,6 +655,5 @@ end)
 client.connect_signal("unfocus", function(c)
     c.border_color = beautiful.border_normal
 end)
--- }}}
---
+
 collectgarbage() collectgarbage('setpause', 110) collectgarbage('setstepmul', 1000) 
