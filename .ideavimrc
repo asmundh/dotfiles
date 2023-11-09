@@ -76,3 +76,4 @@ nnoremap <leader>+ :action EditorIncreaseFontSize<CR>
 nnoremap <leader>- :action EditorDecreaseFontSize<CR>
 
 nnoremap <leader><leader>g :action ExternalSystem.ProjectRefreshAction<CR>
+set clipboard^=ideaput

@@ -35,7 +35,7 @@ vnoremap < <gv
 nnoremap <C-n> :NERDTreeToggle<CR>
 nnoremap <C-f> :NERDTreeFind<CR>
 
-:set clipboard=unnamedplus
+:set clipboard=unnamedplus " Works only if :echo has('clipboard') returns 1
 
 " Allow undos and history to be persistant
 set undofile
