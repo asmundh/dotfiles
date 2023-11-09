@@ -36,8 +36,13 @@ let g:NERDTreeQuitOnOpen =
 let g:NERDTreeMapActivateNode = 'l'
 let g:NERDTreeMapJumpParent = 'h'
 
-"" Open NERDTree
+" Open NERDTree
 nnoremap <leader>o :NERDTree<CR>
+
+" Mnemonic navigation
+nnoremap <leader>mm :action ToggleBookmarkWithMnemonic<CR>
+nnoremap <leader>mt :action ShowTypeBookmarks<CR>
+nnoremap <leader>mr :action DeleteMnemonicFromBookmark<CR>
 
 " Refactor
 nnoremap <leader>rs :action SurroundWith<CR>
@@ -56,7 +61,7 @@ map <leader>d <Action>(Debug)
 nnoremap <leader>w :action CloseContent<CR>
 nnoremap <leader>W :action MoveTabRight<CR>
 nnoremap <leader>T :action ReopenClosedTab<CR>
-nnoremap <leader>m :action MoveEditorToOppositeTabGroup<CR>
+nnoremap <leader>mv :action MoveEditorToOppositeTabGroup<CR>
 nnoremap <leader><leader>b :action ActivateDatabaseToolWindow<CR>
 
 "" File/file content navigation
