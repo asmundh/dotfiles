@@ -37,9 +37,13 @@ source ~/.aliasesrc
 
 source ~/.vyaliasesrc
 source ~/.scripts/vyscripts/ekern
+source ~/.scripts/attendants
 
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-c"
+
+# Autocompletion - requries zsh-autosuggestions from AUR
+source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
 DISABLE_MAGIC_FUNCTIONS=true
 #THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!

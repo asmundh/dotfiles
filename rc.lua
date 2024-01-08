@@ -250,7 +250,7 @@ awful.screen.connect_for_each_screen(function(s)
 				brightness_widget {
 					type = 'arc',
 					program = 'brightnessctl',
-					step = 10,
+					step = 5,
 				},
 				net_wireless,
 				require("battery-widget") {},
@@ -646,7 +646,7 @@ client.connect_signal("manage", function(c)
 end)
 
 -- enable picom
-awful.util.spawn_with_shell("picom --config ~/.config/picom/picom.conf")
+awful.util.spawn_with_shell("picom --config ~/.config/picom.conf")
 
 autorun = true
 if autorun then

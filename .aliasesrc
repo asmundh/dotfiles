@@ -73,8 +73,6 @@ alias tooi='(){todoist-cli a $1 &;}' # Add todo to inbox
 alias toot="todoist-cli l | grep Inbox" # List todos in inbox
 alias toots='(){todoist-cli a -d today $1 &;}' # Add todo with deadline today
 
-alias temp="weather-Cli get"
-
 alias capra="autorandr --load capra"
 alias mobile="autorandr --load mobile"
 alias vy="autorandr --load vy"
