@@ -4,6 +4,8 @@ alias q="exit"
 
 alias al="alias"
 
+alias colordiff='colordiff -yW"`tput cols`"'
+
 alias cat="bat"
 
 alias resc="nmcli device wifi rescan"
@@ -23,6 +25,10 @@ alias j='fasd_cd -d' 		# cd, same functionality as j in autojump
 alias ji='fasd_cd -i' 		# cd, same functionality as j in autojump
 
 alias cp="cp -i"                          # confirm before overwriting something
+
+alias space='du -hs * | sort -h'
+
+alias gradle='./gradlew'
 
 # git aliases
 alias gcl="git clone"
@@ -45,10 +51,12 @@ alias ee='echo éÉ'
 alias aa='echo àÀ'
 
 # Terraform aliases
+alias tf="terraform"
 alias tep="terraform plan"
 alias tev="terraform validate"
 alias tea="terraform apply"
 alias tei="terraform init"
+alias tchanges='terraform plan | grep "will be\|must be"'
 
 # gradle actions
 alias formatt="./gradlew ktlintFormat"
@@ -56,8 +64,9 @@ alias checkk="./gradlew ktlintCheck"
 alias testt="./gradlew test"
 
 alias wifis="nmcli device wifi list"
+alias ports="sudo lsof -i -P -n | grep LISTEN"
 
-alias ll="ls -la"
+alias ll="ls -lha"
 
 alias ghtoken="export GITHUB_TOKEN="
 

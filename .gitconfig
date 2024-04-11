@@ -11,12 +11,14 @@
         comit = commit
 	pushf = push --force-with-lease
 	pul = pull 
+        sth = stash
 	rc = rebase --continue
 	ra = rebase --abort
 	diff = difftool -y
         puhs = push
         cam = commit -am
         glog = log --oneline --decorate --color --graph
+        glogfile = git log --all --
 
 [tig "bind"]
     main = = !git commit --fixup=%(commit)

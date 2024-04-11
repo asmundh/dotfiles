@@ -2,11 +2,24 @@
 
 set nocompatible
 filetype off
+
+" Default to not read-only in vimdiff
+set noro
+
 filetype plugin indent on
+
+" Plugin configuration
+let g:highlightedyank_highlight_duration = -1 " Persist highlighting in vim-highlightedyank
+
+nmap cx <Plug>(ExchangeLine)
 
 set autoread
 
 let mapleader=" "
+
+nnoremap <silent> <leader> :WhichKey '<Space>'<CR>
+" By default timeoutlen is 1000 ms
+set timeoutlen=500
 
 syntax on
 

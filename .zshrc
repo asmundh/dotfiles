@@ -13,6 +13,9 @@ SAVEHIST=10000
 HISTSIZE=10000
 HISTORY_IGNORE="(ls|ps|history|q|exit|shutdown|shutdown now)"
 
+# Do not add lines starting with whitespace to history
+setopt HIST_IGNORE_SPACE
+
 bindkey "^[[1;5C" forward-word
 bindkey "^[[1;5D" backward-word
 bindkey  "^[[H"   beginning-of-line
@@ -42,6 +45,8 @@ source ~/.scripts/attendants
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-c"
 
+export EDITOR=vim
+
 # Autocompletion - requries zsh-autosuggestions from AUR
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
@@ -52,4 +57,5 @@ export SDKMAN_DIR="$HOME/.sdkman"
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
 source /usr/share/zsh-theme-powerlevel10k/powerlevel10k.zsh-theme

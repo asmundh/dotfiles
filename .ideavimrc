@@ -1,10 +1,6 @@
 "" Source your .vimrc
 source ~/.vimrc
 
-"" -- Suggested options --
-" Show a few lines of context around the cursor. Note that this makes the
-" text scroll if you mouse-click near the start or end of the window.
-Plug 'preservim/nerdtree'
 Plug 'easymotion/vim-easymotion'
 
 " Do incremental searching.
@@ -13,8 +9,21 @@ set incsearch
 " Emulate vim-surround plugin
 set surround
 
-" Don't use Ex mode, use Q for formatting.
+" Emulate nerdtree plugin
+Plug 'preservim/nerdtree'
+
+" Emulate vim-quickscope plugin
 map Q gq
+
+" Emulate vim-exchange plugin
+set quickscope
+
+" Emulate highlightedyank plugin
+set highlightedyank
+let g:highlightedyank_highlight_duration = -1 " Persist highlighting in vim-highlightedyank
+
+" Don't use Ex mode, use Q for formatting.
+set exchange
 
 "" Map \b to toggle the breakpoint on the current line
 "map \b <Action>(ToggleLineBreakpoint)
@@ -63,6 +72,8 @@ nnoremap <leader>W :action MoveTabRight<CR>
 nnoremap <leader>T :action ReopenClosedTab<CR>
 nnoremap <leader>mv :action MoveEditorToOppositeTabGroup<CR>
 nnoremap <leader><leader>b :action ActivateDatabaseToolWindow<CR>
+nnoremap <leader><leader>g :action ActivateGradleToolWindow<CR>
+
 
 "" File/file content navigation
 nnoremap <leader>p :action GotoFile<CR>
@@ -76,9 +87,10 @@ nnoremap <leader>b :action ToggleLineBreakpoint<CR>
 nnoremap <leader>e :action ShowErrorDescription<CR>
 
 nnoremap <leader>h :action Replace<CR>
+nnoremap <leader>H :action ReplaceInPath<CR>
 
 nnoremap <leader>+ :action EditorIncreaseFontSize<CR>
 nnoremap <leader>- :action EditorDecreaseFontSize<CR>
 
-nnoremap <leader><leader>g :action ExternalSystem.ProjectRefreshAction<CR>
+nnoremap <leader><leader>r :action ExternalSystem.ProjectRefreshAction<CR>
 set clipboard^=ideaput

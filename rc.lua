@@ -653,6 +653,7 @@ if autorun then
 	awful.spawn.with_shell("xinput --set-prop $(xinput | grep 'Touchpad' | awk '{print $6}' | cut -c 4-5) 'libinput Disable While Typing Enabled' 0") 
 	awful.spawn.with_shell("xinput --set-prop $(xinput | grep 'Touchpad' | awk '{print $6}' | cut -c 4-5) 'libinput Natural Scrolling Enabled' 1") 
 	awful.spawn.with_shell("xinput --set-prop $(xinput | grep 'Touchpad' | awk '{print $6}' | cut -c 4-5) 'libinput Tapping Enabled' 1") 
+	awful.spawn.with_shell("xinput --set-prop $(xinput | grep 'Trackpoint' | awk '{print $6}' | cut -c 4-5) 'libinput Natural Scrolling Enabled' 1") 
 	awful.spawn.with_shell('xset b off')
 	awful.spawn("source ~/.bash_profile")
 	awful.spawn("source ~/.zshrc")
