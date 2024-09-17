@@ -34,7 +34,6 @@ nconf.defaults.icon_size = 64
 nconf.spacing = 8
 -- NAUGHTY end
 
-
 -- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
@@ -111,9 +110,8 @@ menubar.utils.terminal = terminal -- Set the terminal for applications that requ
 -- {{{ Wibar
 
 -- Load custom widgets
-local brightness_widget = require("awesome-wm-widgets.brightness-widget.brightness")
 local net_widgets = require("net_widgets")
-local battery_widget = require("battery-widget")
+local battery_widget = require("awesome-wm-widgets.battery-widget.battery")
 local cpu_widget = require("awesome-wm-widgets.cpu-widget.cpu-widget")
 local volume_widget = require("awesome-wm-widgets.volume-widget.volume")
 local docker_widget = require("awesome-wm-widgets.docker-widget.docker")
@@ -243,15 +241,9 @@ awful.screen.connect_for_each_screen(function(s)
 			{ -- Right widgets
 				layout = wibox.layout.fixed.horizontal,
 				wibox.widget.systray(),
-				docker_widget(),
 				mytextclock,
 				volume_widget(),
 				cpu_widget(),
-				brightness_widget {
-					type = 'arc',
-					program = 'brightnessctl',
-					step = 5,
-				},
 				net_wireless,
 				require("battery-widget") {},
 				s.mylayoutbox,
@@ -264,7 +256,6 @@ end)
 
 -- {{{ Key bindings
 globalkeys = gears.table.join(
--- function () brightness_widget:inc()
 
 -- SELF MADE KEY BINDINGS --
 awful.key(
@@ -280,24 +271,19 @@ awful.key(
 { description = "Mute or unmute system", group = "fn keys" }
 ),
 awful.key(
-{ "fn + F2" }, "#68", function()  awful.util.spawn("pactl set-sink-volume 0 -5%") end,
+{ "fn + F2" }, "#68", function()  awful.util.spawn("pulsemixer --change-volume -5 --max-volume 100") end,
 { description = "decrease volume by 5%", group = "fn keys" }
 ),
 awful.key(
-{ "fn + F3" }, "#69", function()  awful.util.spawn("pactl set-sink-volume 0 +5%") end,
+{ "fn + F3" }, "#69", function()  awful.util.spawn("pulsemixer --change-volume +5 --max-volume 100") end,
 { description = "increase volume by 5%", group = "fn keys" }
-),
-awful.key(
-{ "fn + F5" }, "#71", function()  brightness_widget:dec() end,
-{ description = "decrease brightness by 10%", group = "fn keys" }
 ),
 awful.key({}, "XF86AudioPlay", function()
 	awful.util.spawn_with_shell("playerctl play-pause")
 end),
-awful.key(
-{ "fn + F6" }, "#72", function()  brightness_widget:inc() end,
-{ description = "increase brightness by 10%", group = "fn keys" }
-),
+awful.key({}, "XF86AudioNext", function()
+	awful.util.spawn_with_shell("playerctl next")
+end),
 awful.key(
 { "fn + F7" }, "#73", function()  awful.util.spawn("arandr") end,
 { description = "Open arandr", group = "fn keys" }
@@ -312,6 +298,9 @@ awful.key({modkey, "Shift" }, "Return", function() awful.util.spawn(terminal.." 
 ),
 
 -- AWESOME KEY BINDINGS
+awful.key({modkey,}, "e", function()
+	awful.util.spawn_with_shell("echo -n 'éÉ' | xclip -selection c")
+end),
 awful.key({ modkey, }, "s", hotkeys_popup.show_help,
 { description = "show help", group = "awesome" }),
 
@@ -397,45 +386,18 @@ end,
 
 -- Prompt
 awful.key({ modkey }, "r", function()
+--	awful.screen.focused().mypromptbox:run()
+	awful.spawn.with_shell("rofi -show drun &>> /tmp/rofi.log")
+end,
+{ description = "run prompt", group = "launcher" }),
+awful.key({ modkey, "Shift" }, "t", function()
+	awful.spawn("$cmd")
+end,
+{ description = "run shell command", group = "launcher"}),
+awful.key({ modkey, "Shift" }, "r", function()
 	awful.screen.focused().mypromptbox:run()
 end,
 { description = "run prompt", group = "launcher" }),
-
-awful.key({ modkey, "Shift" }, "r", function()
-	awful.prompt.run {
-		prompt = "Run: ",
-		textbox = awful.screen.focused().mypromptbox.widget,
-		exe_callback = function(command)
-			if command and #command > 0 then
-				awful.spawn(command, {
-					floating = true,
-					placement = awful.placement.bottom, -- + awful.placement.no_overlap,
-					width = 900,
-					height = 500
-				})
-			end
-
-		end
-	}
-end,
-{ description = "run prompt", group = "launcher" }),
--- awful.key({ modkey }, "c", function()
--- 	awful.prompt.run {
--- 		prompt = "Run: ",
--- 		textbox = awful.screen.focused().mypromptbox.widget,
--- 		exe_callback = function(command)
--- 			if command and #command > 0 then
--- 				awful.spawn.easy_async(command .. " &", function(stdout)
--- 					naughty.notify({ preset = naughty.config.presets.critical,
--- 					title = command,
--- 					text = stdout })
--- 				end)
--- 			end
--- 
--- 		end
--- 	}
--- end,
--- { description = "run prompt", group = "launcher" }),
 -- Menubar
 awful.key({ modkey }, "p", function()
 	menubar.show()
@@ -510,7 +472,7 @@ for i = 1, 9 do
 		end
 	end,
 	{ description = "view tag #" .. i, group = "tag" }),
-	-- Toggle tag display.
+	-- Toggle tag displa.
 	awful.key({ modkey, "Control" }, "#" .. i + 9,
 	function()
 		local screen = awful.screen.focused()

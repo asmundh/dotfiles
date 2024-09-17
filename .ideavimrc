@@ -9,6 +9,9 @@ set incsearch
 " Emulate vim-surround plugin
 set surround
 
+" Emulate vim-visual-multi
+set vim-visual-multi
+
 " Emulate nerdtree plugin
 Plug 'preservim/nerdtree'
 
@@ -24,9 +27,6 @@ let g:highlightedyank_highlight_duration = -1 " Persist highlighting in vim-high
 
 " Don't use Ex mode, use Q for formatting.
 set exchange
-
-"" Map \b to toggle the breakpoint on the current line
-"map \b <Action>(ToggleLineBreakpoint)
 
 "" Move methods
 nnoremap [ :action MethodUp<CR>
@@ -51,7 +51,7 @@ nnoremap <leader>o :NERDTree<CR>
 " Mnemonic navigation
 nnoremap <leader>mm :action ToggleBookmarkWithMnemonic<CR>
 nnoremap <leader>mt :action ShowTypeBookmarks<CR>
-nnoremap <leader>mr :action DeleteMnemonicFromBookmark<CR>
+nnoremap <leader>mr :action ToggleBookmark<CR>
 
 " Refactor
 nnoremap <leader>rs :action SurroundWith<CR>
@@ -59,12 +59,11 @@ nnoremap <leader>rr :action RefactoringMenu<CR>
 nnoremap <leader>k :action RefactoringMenu<CR>
 
 " Documentation
-nnoremap <leader>d :action QuickJavaDoc<CR>
 nnoremap <leader><leader>d :action ExternalJavaDoc<CR>
 nnoremap <leader><leader>f :action ToggleRenderedDocPresentationForAll<CR>
 
-"" Map <leader>d to start debug
-map <leader>d <Action>(Debug)
+" Enter distraction free mod
+nnoremap <leader>dist :action ToggleDistractionFreeMode<CR>
 
 "" Tab/window handling
 nnoremap <leader>w :action CloseContent<CR>
@@ -73,7 +72,7 @@ nnoremap <leader>T :action ReopenClosedTab<CR>
 nnoremap <leader>mv :action MoveEditorToOppositeTabGroup<CR>
 nnoremap <leader><leader>b :action ActivateDatabaseToolWindow<CR>
 nnoremap <leader><leader>g :action ActivateGradleToolWindow<CR>
-
+nnoremap <leader><leader>l :action ManageRecentProjects<CR>
 
 "" File/file content navigation
 nnoremap <leader>p :action GotoFile<CR>
@@ -83,6 +82,7 @@ nnoremap <leader>z :action SelectInProjectView<CR>
 
 nnoremap <leader>a :action GotoAction<CR>
 nnoremap <leader>b :action ToggleLineBreakpoint<CR>
+nnoremap <leader>z :action Vcs.RollbackChangedLines<CR
 
 nnoremap <leader>e :action ShowErrorDescription<CR>
 

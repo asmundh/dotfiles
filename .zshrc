@@ -40,7 +40,6 @@ source ~/.aliasesrc
 
 source ~/.vyaliasesrc
 source ~/.scripts/vyscripts/ekern
-source ~/.scripts/attendants
 
 export MANPAGER="less -R --use-color -Dd+r -Du+b"
 export MANROFFOPT="-c"

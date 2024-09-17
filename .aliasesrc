@@ -6,8 +6,6 @@ alias al="alias"
 
 alias colordiff='colordiff -yW"`tput cols`"'
 
-alias cat="bat"
-
 alias resc="nmcli device wifi rescan"
 
 alias psag='(){ps aux | grep $1}'
@@ -37,8 +35,9 @@ alias gco="git checkout"
 alias gcob="git checkout -b"
 
 # GitHub CLI
-alias ghpr="gh pr create -f"
-alias ghpr="gh pr view --web"
+alias ghpr="gh pr view --web &"
+alias dash="gh dash --config ~/.config/ghdash.yml"
+alias draft="gh pr create -f -d"
 
 # NPM aliases
 alias ni='npm install'
@@ -47,8 +46,15 @@ alias nr='npm run'
 alias ns='npm start'
 
 alias scs='systemctl start'
-alias ee='echo éÉ'
-alias aa='echo àÀ'
+
+ee() {
+    echo "éÉ"
+    echo -n "éÉ" | xclip -selection c
+}
+aa(){
+    echo "àÀ"
+    echo -n "àÀ" | xclip -selection c
+}
 
 # Terraform aliases
 alias tf="terraform"
@@ -56,7 +62,8 @@ alias tep="terraform plan"
 alias tev="terraform validate"
 alias tea="terraform apply"
 alias tei="terraform init"
-alias tchanges='terraform plan | grep "will be\|must be"'
+alias tchanges='terraform plan | grep "will be\|must be\|has moved"'
+
 
 # gradle actions
 alias formatt="./gradlew ktlintFormat"
@@ -88,3 +95,5 @@ alias vy="autorandr --load vy"
 
 alias nvpn='(){sudo openvpn --config /etc/openvpn/ovpn_tcp/$1.nordvpn.com.tcp.ovpn --auth-user-pass ~/.nordvpn/credentials.txt}'
 alias nvpnlist='(){ls /etc/openvpn/ovpn_tcp | grep $1 | awk "{print $NF}"}'
+
+alias folders='ls -d */'

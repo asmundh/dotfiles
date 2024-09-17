@@ -9,7 +9,7 @@ set noro
 filetype plugin indent on
 
 " Plugin configuration
-let g:highlightedyank_highlight_duration = -1 " Persist highlighting in vim-highlightedyank
+let g:highlightedyank_highlight_duration = 500 " Persist highlighting in vim-highlightedyank
 
 nmap cx <Plug>(ExchangeLine)
 
@@ -25,6 +25,7 @@ syntax on
 
 set expandtab
 set shiftwidth=4
+set tabstop=4
 set autoindent
 set smartindent
 " set relativenumber
