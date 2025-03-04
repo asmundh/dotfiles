@@ -23,7 +23,7 @@ set quickscope
 
 " Emulate highlightedyank plugin
 set highlightedyank
-let g:highlightedyank_highlight_duration = -1 " Persist highlighting in vim-highlightedyank
+let g:highlightedyank_highlight_duration = 500" Persist highlighting in vim-highlightedyank
 
 " Don't use Ex mode, use Q for formatting.
 set exchange
@@ -59,7 +59,7 @@ nnoremap <leader>rr :action RefactoringMenu<CR>
 nnoremap <leader>k :action RefactoringMenu<CR>
 
 " Documentation
-nnoremap <leader><leader>d :action ExternalJavaDoc<CR>
+nnoremap <leader><leader>d :action QuickJavaDoc<CR>
 nnoremap <leader><leader>f :action ToggleRenderedDocPresentationForAll<CR>
 
 " Enter distraction free mod
@@ -71,12 +71,13 @@ nnoremap <leader>W :action MoveTabRight<CR>
 nnoremap <leader>T :action ReopenClosedTab<CR>
 nnoremap <leader>mv :action MoveEditorToOppositeTabGroup<CR>
 nnoremap <leader><leader>b :action ActivateDatabaseToolWindow<CR>
-nnoremap <leader><leader>g :action ActivateGradleToolWindow<CR>
+nnoremap <leader><leader>g :action ExternalSystem.ProjectRefreshAction<CR>
 nnoremap <leader><leader>l :action ManageRecentProjects<CR>
 
 "" File/file content navigation
 nnoremap <leader>p :action GotoFile<CR>
 nnoremap <leader>f :action FindInPath<CR>
+nnoremap <leader>F :action Find<CR>
 nnoremap <leader>g :action GotoDeclaration<CR>
 nnoremap <leader>z :action SelectInProjectView<CR>
 

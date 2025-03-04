@@ -9,7 +9,7 @@ set noro
 filetype plugin indent on
 
 " Plugin configuration
-let g:highlightedyank_highlight_duration = 500 " Persist highlighting in vim-highlightedyank
+let g:highlightedyank_highlight_duration = 300 " Persist highlighting in vim-highlightedyank
 
 nmap cx <Plug>(ExchangeLine)
 
@@ -31,6 +31,9 @@ set smartindent
 " set relativenumber
 set ignorecase
 set number
+
+" Do not add newline to end of file
+:set nofixendofline
 
 " Vim easymotion
 nmap <leader>/ <Plug>(easymotion-s2)
@@ -64,3 +67,7 @@ command WQ wq
 command Wq wq
 command W w
 command Q q
+
+" Formatting lua files
+autocmd FileType lua setlocal shiftwidth=4 tabstop=4 softtabstop=4 expandtab
+autocmd FileType lua setlocal autoindent

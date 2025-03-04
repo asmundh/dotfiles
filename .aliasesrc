@@ -33,6 +33,7 @@ alias gcl="git clone"
 alias gst="git status"
 alias gco="git checkout"
 alias gcob="git checkout -b"
+alias gcom='git checkout $(git symbolic-ref --short refs/remotes/origin/HEAD | sed "s#origin/##")'
 
 # GitHub CLI
 alias ghpr="gh pr view --web &"
@@ -82,6 +83,8 @@ alias tfmt="terraform fmt"
 alias lg="lazygit"
 alias bith="bluetuith"
 alias pix="pulsemixer"
+
+alias jwt="~/dotfiles/shellscripts/jwt.sh"
 
 alias todo="todoist-cli"
 alias todos="todoist-cli s" # Sync todoist

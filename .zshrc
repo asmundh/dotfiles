@@ -46,6 +46,10 @@ export MANROFFOPT="-c"
 
 export EDITOR=vim
 
+# To use pyenv
+#eval "$(pyenv init -)"
+eval "$(pyenv init --path)"
+
 # Autocompletion - requries zsh-autosuggestions from AUR
 source /usr/share/zsh/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh
 
